@@ -3,7 +3,9 @@
         "frontend": {
             "root": "frontend",
             "routePrefix": "/",
-            "framework": "vite"
+            "framework": "vite",
+            "buildCommand": "cd frontend && npm install && npm run build",
+            "outputDirectory": "frontend/dist"
         },
         "backend": {
             "root": "backend",
