@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\Admin\\\\Desktop\\\\Cognita\\\\backend\\\\alembic.ini\" -ErrorAction SilentlyContinue)",
+      "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\Admin\\\\Desktop\\\\Cognita\\\\backend\\\\migrations\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Deleted alembic.ini and migrations/\")"
+    ]
+  }
+}
