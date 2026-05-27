@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:///./delta.db")
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite+aiosqlite:////tmp/delta.db")
 
 engine = create_async_engine(
     DATABASE_URL,
