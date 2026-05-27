@@ -1,11 +1,20 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from routers import traces, extract, user_traces
+from database import engine, Base
+import models  # ensures all models are registered on Base.metadata
 
-app = FastAPI(title="Delta API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    yield
+
+app = FastAPI(title="Delta API", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

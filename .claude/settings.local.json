@@ -3,7 +3,10 @@
     "allow": [
       "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\Admin\\\\Desktop\\\\Cognita\\\\backend\\\\alembic.ini\" -ErrorAction SilentlyContinue)",
       "Bash(Remove-Item -Recurse -Force \"C:\\\\Users\\\\Admin\\\\Desktop\\\\Cognita\\\\backend\\\\migrations\" -ErrorAction SilentlyContinue)",
-      "Bash(Write-Host \"Deleted alembic.ini and migrations/\")"
+      "Bash(Write-Host \"Deleted alembic.ini and migrations/\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Admin\\\\Desktop\\\\Cognita\\\\backend\\\\\" | Where-Object { $_.Extension -eq \".db\" })",
+      "PowerShell(& python -c \"import sqlite3; conn = sqlite3.connect\\('C:/Users/Admin/Desktop/Cognita/backend/delta.db'\\); print\\(conn.execute\\(\\\\\"SELECT name FROM sqlite_master WHERE type='table'\\\\\"\\).fetchall\\(\\)\\)\")",
+      "PowerShell(Get-Command *)"
     ]
   }
 }
